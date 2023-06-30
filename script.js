@@ -1,4 +1,15 @@
-const apiKey = "caefd044204e11b3527362295135047e";
+let apiKey=null;
+
+// Charger le fichier de configuration
+fetch('config.json')
+    .then(response => response.json())
+    .then(config => {
+        apiKey = config.apiKey;
+
+    })
+    .catch(error => console.error('Erreur lors de la lecture du fichier de configuration :', error));
+
+
 const ville = document.getElementById("ville");
 const heure = document.getElementById("heure");
 const tempActu = document.getElementById("temperatureActuel");
